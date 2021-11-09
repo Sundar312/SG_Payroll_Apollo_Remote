@@ -2,6 +2,11 @@ package com.BrowserFactory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class LaunchBrowser {
 
@@ -10,14 +15,17 @@ public class LaunchBrowser {
 	public WebDriver launchBrowser(String Browser, String URL) throws Exception {
 
 		if(Browser.equalsIgnoreCase("Chrome")) {
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\sundar149\\eclipse-workspace\\SG_Payroll_Apollo\\src\\test\\java\\com.Drivers\\chromedriver.exe");
+		    WebDriverManager.chromedriver().setup();
+			//System.setProperty("webdriver.chrome.driver", "C:\\Users\\sundar149\\eclipse-workspace\\SG_Payroll_Apollo\\src\\test\\java\\com.Drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		if(Browser.equalsIgnoreCase("Firefox")) {
-
+			WebDriverManager.firefoxdriver().setup(); 
+			driver = new FirefoxDriver();
 		}
 		if(Browser.equalsIgnoreCase("Internet Explorer")){
-
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
 		}
 		else {
 			System.out.println("The Browser you have requested cannot be found");
