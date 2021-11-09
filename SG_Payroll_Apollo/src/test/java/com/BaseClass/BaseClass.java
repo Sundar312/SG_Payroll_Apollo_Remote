@@ -21,7 +21,8 @@ public class BaseClass {
 	
 	public void Setup() throws Exception {
 		CfgReader.ConfigSetup("C:\\Users\\sundar149\\git\\SG_Payroll_Apollo_Remote\\SG_Payroll_Apollo\\target\\TestData\\configuration.properties");
-	    driver = launch.launchBrowser(CfgReader.GetConfigValue("Browser"), CfgReader.GetConfigValue("RegressionTestURL"));
+	    driver = launch.launchBrowserType(CfgReader.GetConfigValue("Browser"), CfgReader.GetConfigValue("RegressionTestURL"));
+	 
 	}
 
 }
