@@ -15,7 +15,7 @@ public class LaunchBrowser {
 	public WebDriver launchBrowser(String Browser, String URL) throws Exception {
 
 		if(Browser.equalsIgnoreCase("Chrome")) {
-		    WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().setup();
 			//System.setProperty("webdriver.chrome.driver", "C:\\Users\\sundar149\\eclipse-workspace\\SG_Payroll_Apollo\\src\\test\\java\\com.Drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
@@ -32,10 +32,10 @@ public class LaunchBrowser {
 		}
 
 		driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
-        driver.get(URL);
-        Thread.sleep(3000);
-        return driver;
+		driver.manage().deleteAllCookies();
+		driver.get(URL);
+		Thread.sleep(3000);
+		return driver;
 	}
 
 }
