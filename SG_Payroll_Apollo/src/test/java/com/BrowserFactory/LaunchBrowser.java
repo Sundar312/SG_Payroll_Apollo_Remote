@@ -16,7 +16,7 @@ public class LaunchBrowser {
 	@Test
 	@Parameters({"Browser","URL"})
 
-	public void launchBrowserType (String Browser, String URL)throws Exception
+	public WebDriver launchBrowserType (String Browser, String URL)throws Exception
 	
 	
 	{
@@ -37,6 +37,7 @@ public class LaunchBrowser {
 		driver.manage().window().maximize();
 		driver.get("https://apollodemo.talentoz.com/#/login");
 		System.out.println(Browser + ": " + driver.getTitle());
+		return driver;
 		
 	}
 }
