@@ -44,6 +44,7 @@ public class ExcelReader {
 	
 	public void CloseDoc() throws IOException {
 		WB.close();
+		
 	}
 	
 	

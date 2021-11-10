@@ -16,5 +16,6 @@ public class ConfigReader {
 	public String GetConfigValue(String Key) {
 		return prop.getProperty(Key);
 	}
+	
 
 }
