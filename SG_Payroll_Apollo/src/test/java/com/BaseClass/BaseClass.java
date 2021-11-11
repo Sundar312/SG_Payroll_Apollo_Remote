@@ -14,6 +14,7 @@ public class BaseClass {
 	ConfigReader CfgReader;
 	LaunchBrowser launch;
 	WebDriver driver;
+	LoginPage LoginPage;
 
 	public BaseClass() {		
 		ExReader = new ExcelReader();
@@ -21,8 +22,22 @@ public class BaseClass {
 		launch = new LaunchBrowser();
 	}
 
-	public void Setup() throws Exception {
+	public WebDriver Setup() throws Exception {
 		CfgReader.ConfigSetup("C:\\Users\\sundar149\\git\\SG_Payroll_Apollo_Remote\\SG_Payroll_Apollo\\target\\TestData\\configuration.properties");
 		driver = launch.launchBrowser(CfgReader.GetConfigValue("Browser"), CfgReader.GetConfigValue("RegressionTestURL"));
+		return driver;
+	}
+
+	public void loginPage() throws Exception {
+		LoginPage = PageFactory.initElements(driver, LoginPage.class);
+		LoginPage.LoginHomePageAsAdmi();
+	}
+
+	public void logOut() throws Exception {
+		LoginPage.Logout();
+	}
+
+	public void Teardown() {
+		driver.quit();
 	}
 }
