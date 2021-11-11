@@ -26,9 +26,9 @@ public class TC001 {
 	public void loginTest() throws Exception {
 		BC.loginPage();
 		String LoginName = driver.findElement(By.xpath("//ul[@class='navbar-nav float-end']/child::li/child::a")).getText();
-        Assert.assertEquals(LoginName, "Apollo test@1234");
+		Assert.assertEquals(LoginName, "Apollo test@1234");
 	}
-	
+
 	@AfterClass
 	public void TearDown() {
 		BC.Teardown();
