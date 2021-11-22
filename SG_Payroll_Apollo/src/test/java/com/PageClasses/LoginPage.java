@@ -12,12 +12,12 @@ import com.Utilities.ConfigReader;
 public class LoginPage {
 
 	WebDriver driver;
-	ConfigReader CfgReader;
+	ConfigReader lCfgReader;
 
-	public LoginPage(WebDriver driver,ConfigReader CfgReader) {
+	/*public LoginPage(WebDriver driver,ConfigReader CfgReader) {
 		this.driver=driver;
 		this.CfgReader=CfgReader;
-	}
+	}*/
 
 	@FindBy(how=How.XPATH,using="//*[@id='email']")
 	WebElement username;
@@ -28,14 +28,15 @@ public class LoginPage {
 	@FindBy(how=How.XPATH,using="//button[@class='btn btn-block login-btn mb-4']")
 	WebElement LoginBtn;
 
-	public void LoginHomePageAsAdmi() throws Exception {
+	public void LoginHomePageAsAdmi(ConfigReader CfgReader) throws Exception {
+		this.lCfgReader=CfgReader;
 		username.sendKeys(CfgReader.GetConfigValue("username"));
 		password.sendKeys(CfgReader.GetConfigValue("password"));
 		LoginBtn.click();
 		Thread.sleep(5000);
 	}
 
-	public void LoginHomePageAsEmployee() throws Exception {
+	public void LoginHomePageAsEmployee(ConfigReader CfgReader) throws Exception {
 		username.sendKeys(CfgReader.GetConfigValue("username"));
 		password.sendKeys(CfgReader.GetConfigValue("password"));
 		LoginBtn.click();
