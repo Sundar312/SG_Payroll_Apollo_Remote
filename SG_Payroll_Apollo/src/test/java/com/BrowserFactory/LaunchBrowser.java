@@ -23,16 +23,17 @@ public class LaunchBrowser {
 		if(Browser.equalsIgnoreCase("Firefox")) {
 			WebDriverManager.firefoxdriver().setup(); 
 			driver = new FirefoxDriver();
+			System.out.println("Launched the browser");
 		}
 		if(Browser.equalsIgnoreCase("Internet Explorer")){
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
+			System.out.println("Launched the browser");
 		}
 		else {
 			System.out.println("The Browser you have requested cannot be found");
 		}
 
-		System.out.println("Outta if loop");
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.get(URL);

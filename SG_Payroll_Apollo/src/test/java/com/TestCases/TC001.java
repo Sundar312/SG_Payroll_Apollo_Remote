@@ -26,7 +26,9 @@ public class TC001 {
 	public void loginTest() throws Exception {
 		BC.loginPage();
 		String LoginName = driver.findElement(By.xpath("//ul[@class='navbar-nav float-end']/child::li/child::a")).getText();
+		System.out.println("The User logged in as is:" +LoginName);
 		Assert.assertEquals(LoginName, "Apollo test@1234");
+		BC.logOut();
 	}
 
 	@AfterClass

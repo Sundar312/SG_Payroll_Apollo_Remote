@@ -14,10 +14,9 @@ public class LoginPage {
 	WebDriver driver;
 	ConfigReader lCfgReader;
 
-	/*public LoginPage(WebDriver driver,ConfigReader CfgReader) {
+	public LoginPage(WebDriver driver) {
 		this.driver=driver;
-		this.CfgReader=CfgReader;
-	}*/
+	}
 
 	@FindBy(how=How.XPATH,using="//*[@id='email']")
 	WebElement username;
@@ -29,7 +28,7 @@ public class LoginPage {
 	WebElement LoginBtn;
 
 	public void LoginHomePageAsAdmi(ConfigReader CfgReader) throws Exception {
-		this.lCfgReader=CfgReader;
+		this.lCfgReader=CfgReader; //Can think about removing this in future
 		username.sendKeys(CfgReader.GetConfigValue("username"));
 		password.sendKeys(CfgReader.GetConfigValue("password"));
 		LoginBtn.click();
